@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="container mt-3">
+        <div class="container mt-5">
 
             <a href="{{ route('home') }}"> <button class="btn btn-primary"> View products</button> </a>
             <br><br>
@@ -24,7 +24,7 @@
                     </thead>
                     <tbody>
                         @foreach ($cartItems as $item)
-                            <tr>    
+                            <tr>
                                 <td>{{ $item->product->name }}</td>
                                 <td>{{ $item->product->price }}</td>
                                 <td>{{ $item->quantity }}</td>

@@ -56,4 +56,5 @@ Route::middleware(['role:0'])->group(function () {
     Route::post('/user/checkout',[HomeController::class,'checkout'])->name('checkout');
 
     Route::get('/user/orders',[HomeController::class,'orders'])->name('orders');
+    
 });

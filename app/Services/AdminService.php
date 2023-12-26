@@ -224,4 +224,23 @@ class AdminService
 
     }
 
+
+    public function updatecart($itemId,$quantity)
+    {
+        DB::beginTransaction();
+        try {
+            $item = $this->adminRepository->updatecart($itemId,$quantity);
+
+        } catch (Exception $e) {
+            DB::rollBack();
+            Log::info($e->getMessage());
+
+            throw new InvalidArgumentException('Unable to edit cart quantity');
+        }
+
+        DB::commit();
+
+        return $item;
+    }
+
 }

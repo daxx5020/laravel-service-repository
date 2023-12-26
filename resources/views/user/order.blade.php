@@ -5,8 +5,6 @@
     <div class="row justify-content-center">
 <!-- resources/views/orders/index.blade.php -->
 
-<!-- ... (existing code) ... -->
-
 <div class="container mt-3">
     <a href="{{route('home')}}"> <button class="btn btn-primary" >Home</button> </a>
     <br> <br>

@@ -133,7 +133,6 @@ class AdminRepository
         return $cartItems;
     }
 
-
     public function removecart($id)
     {
         $product = $this->cart->find($id)->delete();
@@ -158,7 +157,6 @@ class AdminRepository
         return $existingCartItem->update([
             'quantity' => $existingCartItem->quantity + $quantity,
         ]);
-
     }
 
     public function cartadd($productId,$quantity)
@@ -201,6 +199,12 @@ class AdminRepository
     {
         $cartitem->delete();
         return $cartitem;
+    }
+
+    public function updatecart($itemId,$quantity){
+        $item = $this->cart->find($itemId);
+        $item->update(['quantity' => $quantity]);
+        return $item;
     }
 
 

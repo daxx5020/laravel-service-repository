@@ -9,10 +9,7 @@ Features
 
 ### User Role
 - View Products By Category [ View ]
-- Add To Cart & Checkout [ Can add multiple products to cart and checkout ]
+- Add To Cart & Checkouts [ Can add multiple products to cart and checkout ]
 - View Orders [ View ]
-
-## Notes
--  Just focus on functionality, no need to focus on UI.
 
 Thanks

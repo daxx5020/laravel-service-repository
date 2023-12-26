@@ -116,6 +116,7 @@
                         },
                         success: function(data) {
                             alert(data.message);
+
                         },
                         error: function(error) {
                             console.log('Error:', error);

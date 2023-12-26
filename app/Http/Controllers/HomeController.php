@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use Illuminate\Http\Request;
 use App\Services\AdminService;
 
@@ -238,4 +239,11 @@ class HomeController extends Controller
         $orders = $this->adminService->order($id);
         return view('user.order', compact('orders'));
     }
+
+    // public function updateCart(Request $request, $itemId){
+    //     $quantity = $request->input('quantity');
+    //     $this->adminService->updatecart($itemId,$quantity);
+
+    //     return redirect()->back();
+    // }
 }
