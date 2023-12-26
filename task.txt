@@ -1,0 +1,18 @@
+# Challenge: E-commerce store using laravel with service repository pattern
+
+Features
+- Simple role based authentication [ Admin, User ]
+  
+### Admin Role
+- Manage Categories [ Create, Update, Delete ]
+- Manage Products By Category [ Create, Update, Delete ]
+
+### User Role
+- View Products By Category [ View ]
+- Add To Cart & Checkout [ Can add multiple products to cart and checkout ]
+- View Orders [ View ]
+
+## Notes
+-  Just focus on functionality, no need to focus on UI.
+
+Thanks
