@@ -46,7 +46,7 @@ class LoginController extends Controller
         } elseif ($user->role_id == 1) {
             return redirect('/admin/home');
         } else {
-            // Handle other role scenarios if needed
+
             return redirect('/');
         }
     }
