@@ -31,7 +31,7 @@ class ProductRepository{
         if ($id) {
             return $this->product->find($id);
         } else {
-            return $this->product->get();
+            return $this->product::with('category')->get();
         }
     }
 

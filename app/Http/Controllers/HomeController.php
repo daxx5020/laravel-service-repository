@@ -6,8 +6,7 @@ use App\Models\Cart;
 use Illuminate\Http\Request;
 use App\Services\CategoryService;
 use App\Services\ProductService;
-
-
+use Yajra\DataTables\Facades\DataTables;
 
 class HomeController extends Controller
 {
@@ -39,9 +38,23 @@ class HomeController extends Controller
         return view('home',compact('products'),compact('categories'));
     }
 
-    public function admin()
+    public function admin(Request $request)
     {
         $products = $this->ProductService->viewproduct();
-        return view('adminhome', compact('products'));
+        if ($request->ajax()) {
+            $data = $products;
+            return Datatables::of($data)
+                ->addIndexColumn()
+                ->addColumn('action', function($data){
+                    $actionBtn = '<a href="/admin/editproduct/ '.$data->id.' " id="'.$data->id.'" class="edit btn btn-success btn-sm">Edit</a> 
+                    
+                    <a href="" id="'.$data->id.'" class="delete btn btn-danger btn-sm">Delete</a>';
+                    return $actionBtn;
+                })
+                ->rawColumns(['action'])
+                ->make(true);
+        }
+ 
+        return view('adminhome');
     }
 }

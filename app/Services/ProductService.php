@@ -26,6 +26,7 @@ class ProductService{
     {
         if ($id) {
             return $this->ProductRepository->viewproduct($id);
+            
         } else {
             return $this->ProductRepository->viewproduct();
         }

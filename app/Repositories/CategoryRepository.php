@@ -17,7 +17,7 @@ class CategoryRepository{
         if ($id) {
             return $this->category->find($id);
         } else {
-            return $this->category->get();
+            return $this->category::with('parent')->get();
         }
     }
 
