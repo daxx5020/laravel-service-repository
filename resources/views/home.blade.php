@@ -30,8 +30,8 @@
                                 <p class="card-text"><strong>Price:</strong> {{ $product->price }}</p>
 
                                 <div class="mt-2 mb-3">
-                                    <input type="number" class="count" name="quantity" id="quantity" value="1"
-                                        min="1" max="100">
+                                    <input type="number" class="count" name="quantity" id="quantity_{{ $product->id }}"
+                                        value="1" min="1" max="10">
                                 </div>
                                 <button class="btn btn-success" onclick="addToCart({{ $product->id }})">Add to
                                     cart</button>
@@ -74,8 +74,17 @@
                                             'No description available') + '</p>';
                                         productHtml += '<p class="card-text"><strong>Price:</strong> ' + product
                                             .price + '</p>';
+
+                                        // Add the input field for quantity with a unique id
+                                        productHtml += '<div class="mt-2 mb-3">';
+                                        productHtml +=
+                                            '<input type="number" class="count" name="quantity" id="quantity_' +
+                                            product.id + '" value="1" min="1" max="10">';
+                                        productHtml += '</div>';
+
+                                        // Add the "Add to cart" button with an onclick event
                                         productHtml += '<button class="btn btn-success" onclick="addToCart(' +
-                                            product.id + ')" >Add to cart</button>';
+                                            product.id + ')">Add to cart</button>';
                                         productHtml += '</div></div>';
 
                                         $('#filtered-products').append(productHtml);
@@ -101,8 +110,10 @@
             <script>
                 function addToCart(productId) {
                     var csrfToken = $('meta[name="csrf-token"]').attr('content');
-                    var quantityinput = document.getElementById('quantity');
+                    var quantityinput = document.getElementById('quantity_' + productId);
                     var quantity = quantityinput.value;
+
+                    console.log(quantity);
 
                     $.ajax({
                         url: '{{ route('addtocart') }}',
