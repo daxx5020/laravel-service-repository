@@ -16,9 +16,9 @@ class ProductService{
         $this->ProductRepository = $ProductRepository;
     }
 
-    public function addproduct($data)
+    public function addproduct($data, $imagePath)
     {
-        $product = $this->ProductRepository->addproduct($data);
+        $product = $this->ProductRepository->addproduct($data, $imagePath);
         return $product;
     }
 
@@ -51,11 +51,11 @@ class ProductService{
         return $product;
     }
 
-    public function updateproduct($id, $data)
+    public function updateproduct($id, $data, $imagePath)
     {
         DB::beginTransaction();
         try {
-            $product = $this->ProductRepository->updateproduct($id, $data);
+            $product = $this->ProductRepository->updateproduct($id, $data, $imagePath);
 
         } catch (Exception $e) {
             DB::rollBack();

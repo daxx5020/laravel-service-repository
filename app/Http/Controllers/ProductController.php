@@ -36,16 +36,17 @@ class ProductController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
+        $imagePath = $request->file('image')->store('product_images', 'public');
 
         $data = $request->only([
             'name',
             'description',
             'price',
             'category_id',
-            // 'image',
+            'image',
         ]);
 
-        $product = $this->ProductService->addproduct($data);
+        $product = $this->ProductService->addproduct($data, $imagePath);
         return redirect()->back()->with('success', 'product added successfully');
     }
 
@@ -73,16 +74,17 @@ class ProductController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
+        $imagePath = $request->file('image')->store('product_images', 'public');
 
         $data = $request->only([
             'name',
             'description',
             'price',
             'category_id',
-            // 'image',
+            'image',
         ]);
 
-        $product = $this->ProductService->updateproduct($id,$data);
+        $product = $this->ProductService->updateproduct($id,$data, $imagePath);
         return redirect('/admin/home')->with('success', 'product edited successfully');
 
     }

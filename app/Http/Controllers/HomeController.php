@@ -6,7 +6,7 @@ use App\Models\Cart;
 use Illuminate\Http\Request;
 use App\Services\CategoryService;
 use App\Services\ProductService;
-use Yajra\DataTables\Facades\DataTables;
+use App\DataTables\ProductsDataTable;
 
 class HomeController extends Controller
 {
@@ -38,23 +38,25 @@ class HomeController extends Controller
         return view('home',compact('products'),compact('categories'));
     }
 
-    public function admin(Request $request)
+    public function admin(ProductsDataTable $dataTable)
     {
-        $products = $this->ProductService->viewproduct();
-        if ($request->ajax()) {
-            $data = $products;
-            return Datatables::of($data)
-                ->addIndexColumn()
-                ->addColumn('action', function($data){
-                    $actionBtn = '<a href="/admin/editproduct/ '.$data->id.' " id="'.$data->id.'" class="edit btn btn-success btn-sm">Edit</a> 
+        
+        return $dataTable->render('adminhome');
+        // $products = $this->ProductService->viewproduct();
+        // if ($request->ajax()) {
+        //     $data = $products;
+        //     return Datatables::of($data)
+        //         ->addIndexColumn()
+        //         ->addColumn('action', function($data){
+        //             $actionBtn = '<a href="/admin/editproduct/ '.$data->id.' " id="'.$data->id.'" class="edit btn btn-success btn-sm">Edit</a> 
                     
-                    <a href="" id="'.$data->id.'" class="delete btn btn-danger btn-sm">Delete</a>';
-                    return $actionBtn;
-                })
-                ->rawColumns(['action'])
-                ->make(true);
-        }
+        //             <a href="" id="'.$data->id.'" class="delete btn btn-danger btn-sm">Delete</a>';
+        //             return $actionBtn;
+        //         })
+        //         ->rawColumns(['action'])
+        //         ->make(true);
+        // }
  
-        return view('adminhome');
+        // return view('adminhome');
     }
 }

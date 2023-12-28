@@ -13,14 +13,14 @@ class ProductRepository{
         $this->product = $product;
     }
 
-    public function addproduct($data)
+    public function addproduct($data, $imagePath)
     {
         $product = Product::create([
             'name' => $data['name'],
             'category_id' => $data['category_id'],
             'description' => $data['description'],
             'price' => $data['price'],
-            // 'image' => $data['image'],
+            'image' => $imagePath,
         ]);
 
         return $product;
@@ -41,7 +41,7 @@ class ProductRepository{
         return $product;
     }
 
-    public function updateproduct($id, $data)
+    public function updateproduct($id, $data, $imagePath)
     {
 
         $product = $this->product->find($id);
@@ -51,7 +51,7 @@ class ProductRepository{
                 'category_id' => $data['category_id'],
                 'description' => $data['description'],
                 'price' => $data['price'],
-                // 'image' => $data['image'],
+                'image' => $imagePath,
             ]);
 
             return $product;
