@@ -63,7 +63,6 @@ class CategoriesTableSeeder extends Seeder
                 'created_at' => '2023-12-28 03:40:55',
                 'updated_at' => '2023-12-28 03:40:55',
             ],
-            // Add more categories as needed
         ]);
     }
 }
