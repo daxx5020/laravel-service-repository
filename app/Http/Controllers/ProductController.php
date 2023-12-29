@@ -46,7 +46,7 @@ class ProductController extends Controller
             'image',
         ]);
 
-        $product = $this->ProductService->addproduct($data, $imagePath);
+        $this->ProductService->addproduct($data, $imagePath);
         return redirect()->back()->with('success', 'product added successfully');
     }
 
@@ -84,7 +84,7 @@ class ProductController extends Controller
             'image',
         ]);
 
-        $product = $this->ProductService->updateproduct($id,$data, $imagePath);
+        $this->ProductService->updateproduct($id,$data, $imagePath);
         return redirect('/admin/home')->with('success', 'product edited successfully');
 
     }

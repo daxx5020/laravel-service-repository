@@ -43,7 +43,7 @@ class CartController extends Controller
             $this->CartService->cartadd($productId,$quantity);
         }
 
-        return response()->json(['message' => 'Product added to cart successfully']);        
+        return response()->json(['message' => 'Product added to cart successfully']);
     }
 
 
