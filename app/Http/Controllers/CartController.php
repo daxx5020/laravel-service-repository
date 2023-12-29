@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Services\CartService;
 use App\Services\OrderService;
+use App\Jobs\SendOrderConfirmationEmail;
 
 
 class CartController extends Controller
@@ -63,6 +64,8 @@ class CartController extends Controller
            $this->OrderService->orderitemcreate($order,$cartItem);
             $this->CartService->emptycart($cartItem);
         }
+        
+        SendOrderConfirmationEmail::dispatch($order);
 
         return redirect()->route('home')->with('success', 'Order placed successfully!');
     }

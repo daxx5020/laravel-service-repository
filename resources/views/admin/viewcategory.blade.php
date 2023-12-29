@@ -5,7 +5,6 @@
         <div class="row justify-content-center">
             <div class="container mt-3">
 
-
                 @if (session('success'))
                     <div class="alert alert-success" role="alert">
                         {{ session('success') }}
@@ -16,7 +15,7 @@
                 <br>
                 <br>
                 <h2>Category List</h2>
-                <table class="table mt-5">
+                <table class="table mt-2">
                     {{ $dataTable->table() }}
                 </table>
             </div>
@@ -58,8 +57,6 @@
                     console.log("Edit button clicked");
             
                     var categoryid = $(this).attr('id');
-            
-                    // Directly navigate to the new URL
                     window.location.href = "/admin/editcategory/" + categoryid;
                 });
             </script>
