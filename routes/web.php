@@ -62,4 +62,5 @@ Route::middleware(['role:0'])->group(function () {
 
     Route::get('/user/orders',[OrderController::class,'orders'])->name('orders');
     
+    
 });
