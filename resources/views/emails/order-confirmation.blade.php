@@ -50,7 +50,7 @@
                 @foreach($order->orderItems as $orderItem)
                     <tr>
                         <td>{{ $orderItem->product->name }}</td>
-                        <td>₹{{ number_format($orderItem->price, 2) }}</td>
+                        <td>₹{{ number_format($orderItem->product->price, 2) }}</td>
                         <td>{{ $orderItem->quantity }}</td>
                         <td>₹{{ number_format($orderItem->price * $orderItem->quantity, 2) }}</td>
                     </tr>

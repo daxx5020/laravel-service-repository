@@ -9,6 +9,7 @@
     @if ($cartItems->isEmpty())
         <p>Your cart is empty.</p>
     @else
+
         <table class="table">
             <thead>
                 <tr>
