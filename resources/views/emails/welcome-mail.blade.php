@@ -13,17 +13,18 @@
             </td>
         </tr>
         <tr>
+            <td style="text-align: center;">
+                <img src="{{ asset('product_images/ecommerce.png') }}" alt="Ecommerce" style="max-width: 30%; height: auto;">
+            </td>
+        </tr>
+        <tr>
             <td>
                 <p>Dear {{ $user->name }},</p>
                 <p>Thank you for joining our community. We are excited to have you on board!</p>
                 <p>Feel free to explore our website and make the most of your experience.</p>
             </td>
         </tr>
-        <tr>
-            <td style="text-align: center;">
-                <img src="{{ asset('path/to/your/logo.png') }}" alt="Your Logo" style="max-width: 100%; height: auto;">
-            </td>
-        </tr>
+       
         <tr>
             <td style="text-align: center;">
                 <p>If you have any questions or need assistance, please don't hesitate to contact us.</p>
