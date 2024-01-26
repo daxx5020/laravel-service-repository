@@ -13,7 +13,7 @@
                 <a href="{{ route('orders') }}"> <button class="btn btn-primary">Orders</button></a>
                 <br><br>
 
-                <h2>All Products</h2>
+                <h2>My Products change</h2>
                 <br>
 
                 <div class="form-group mb-3">
